@@ -1,0 +1,26 @@
+#Free Source
+#Made by Defacter
+
+function Menu(p: player):
+    set metadata tag "menu" of {_p} to chest inventory with 3 rows named "&7&l[Simple Menu]"
+    set slot 10 of metadata tag "menu" of {_p} to compass named "&astuff"
+    set slot 12 of metadata tag "menu" of {_p} to nether star named "&6stuff"
+    set slot 14 of metadata tag "menu" of {_p} to beacon named "&bstuff"
+    set slot 16 of metadata tag "menu" of {_p} to grass block named "&2stuff"
+    open (metadata tag "menu" of {_p}) to {_p}
+
+on inventory click:
+    if name of player's current inventory is "&7&l[Simple Menu]":
+        if %click type% doesn't contain "SHIFT":
+            cancel event
+            if clicked slot is 10:
+                send "&cstuff"
+            if clicked slot is 12:
+                send "&cstuff"
+            if clicked slot is 14:
+                send "&cstuff"
+            if clicked slot is 16:
+                send "&cstuff"
+
+on rightclick of clock:
+    Menu(player)
